@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavItems from '../NavItems/NavItems';
 
 const Navbar = () => {
   return (
     <nav>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper purple darken-1">
         <Link to="/" className="brand-logo">
           Bookaroo
         </Link>
@@ -12,18 +13,7 @@ const Navbar = () => {
           <i className="material-icons">menu</i>
         </a>
         <ul className="right hide-on-med-and-down">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a href="badges.html">Components</a>
-          </li>
-          <li>
-            <a href="collapsible.html">Javascript</a>
-          </li>
-          <li>
-            <a href="mobile.html">Mobile</a>
-          </li>
+          <NavItems />
         </ul>
       </div>
     </nav>
