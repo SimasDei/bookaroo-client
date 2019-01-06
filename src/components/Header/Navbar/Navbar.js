@@ -4,9 +4,9 @@ import NavItems from '../NavItems/NavItems';
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="nav-wrapper purple darken-1">
-        <Link to="/" className="brand-logo">
+    <nav className="purple darken-1 ">
+      <div className="nav-wrapper ">
+        <Link to="/" className="brand-logo" style={{ marginLeft: '16px' }}>
           Bookaroo
         </Link>
         <a href="/" data-target="mobile-demo" className="sidenav-trigger">

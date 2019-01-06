@@ -12,7 +12,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Navbar />
+        <Navbar className="show-on-large" />
 
         <Sidenav />
       </header>
