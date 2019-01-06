@@ -9,9 +9,13 @@ const Navbar = () => {
         <Link to="/" className="brand-logo" style={{ marginLeft: '16px' }}>
           Bookaroo
         </Link>
-        <a href="/" data-target="mobile-demo" className="sidenav-trigger">
+        <div
+          data-target="mobile-demo"
+          className="sidenav-trigger hide-on-med-and-up show-on-medium-and-down"
+          style={{ cursor: 'pointer' }}
+        >
           <i className="material-icons">menu</i>
-        </a>
+        </div>
         <ul className="right hide-on-med-and-down">
           <NavItems />
         </ul>
