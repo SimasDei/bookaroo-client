@@ -38,3 +38,13 @@ export function getBookWithReviewer(id) {
     });
   };
 }
+
+export function clearBookReviewer() {
+  return {
+    type: 'CLEAR_BOOK_REVIEWER',
+    payload: {
+      book: {},
+      reviewer: {}
+    }
+  };
+}
