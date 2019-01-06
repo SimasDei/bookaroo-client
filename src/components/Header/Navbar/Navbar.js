@@ -4,7 +4,7 @@ import NavItems from '../NavItems/NavItems';
 
 const Navbar = () => {
   return (
-    <nav className="purple darken-1 ">
+    <nav className="">
       <div className="nav-wrapper ">
         <Link to="/" className="brand-logo" style={{ marginLeft: '16px' }}>
           Bookaroo
