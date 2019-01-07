@@ -4,9 +4,13 @@ import NavItems from '../NavItems/NavItems';
 
 const Navbar = () => {
   return (
-    <nav className="">
+    <nav className="transparent">
       <div className="nav-wrapper ">
-        <Link to="/" className="brand-logo" style={{ marginLeft: '16px' }}>
+        <Link
+          to="/"
+          className="brand-logo orange-text"
+          style={{ marginLeft: '16px' }}
+        >
           Bookaroo
         </Link>
         <div
@@ -14,7 +18,7 @@ const Navbar = () => {
           className="sidenav-trigger hide-on-med-and-up show-on-medium-and-down"
           style={{ cursor: 'pointer' }}
         >
-          <i className="material-icons">menu</i>
+          <i className="material-icons orange-text">menu</i>
         </div>
         <ul className="right hide-on-med-and-down">
           <NavItems />
