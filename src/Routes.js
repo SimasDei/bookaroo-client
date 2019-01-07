@@ -6,11 +6,13 @@ import BookView from './components/Book';
 import Login from './containers/Admin/login';
 import Auth from './hoc/Auth';
 import User from './components/Admin/index';
+import Welcome from './components/Welcome/Welcome';
 
 const Routes = () => {
   return (
     <Layout>
       <Switch>
+        <Route path="/simas" component={Welcome} />
         <Route path="/" exact component={Auth(Home)} />
         <Route path="/login" exact component={Login} />
         <Route path="/books/:id" exact component={BookView} />

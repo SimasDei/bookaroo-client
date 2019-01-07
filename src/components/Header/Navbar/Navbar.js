@@ -4,7 +4,7 @@ import NavItems from '../NavItems/NavItems';
 
 const Navbar = () => {
   return (
-    <div className="navbar-fixed">
+    <div className="navbar-fixed" style={{ zIndex: '1' }}>
       <nav className="transparent">
         <div className="nav-wrapper">
           <Link

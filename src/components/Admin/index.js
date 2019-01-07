@@ -1,13 +1,14 @@
 import React from 'react';
 
 const User = props => {
+  let user = props.users.login;
   console.log(props);
   return (
     <div className="container">
-      <div className="row center-align">
+      <div className="row">
         <div className="col s12 m8" style={{ width: '100%' }}>
-          <h2 className="header">User Details</h2>
-          <div className="card horizontal">
+          <h2 className="header center-align">User Details</h2>
+          <div className="card horizontal left-align">
             <div className="card-image">
               <img
                 className="responsive-img"
@@ -17,13 +18,18 @@ const User = props => {
             </div>
             <div className="card-stacked">
               <div className="card-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Consectetur corporis tempore excepturi, porro quos dolorum
-                  ipsa natus distinctio commodi laborum, suscipit esse quia
-                  repellat assumenda doloribus! Provident omnis perspiciatis
-                  facilis itaque obcaecati nemo, ea repellat repellendus cumque
-                </p>
+                <div>
+                  <span>Name: </span>
+                  <strong>{user.name}</strong>
+                </div>
+                <div>
+                  <span>Last Name: </span>
+                  <strong>{user.lastName} </strong>
+                </div>
+                <div>
+                  <span>Email: </span>
+                  <strong>{user.email} </strong>
+                </div>
               </div>
               <div className="card-action">
                 <a href="#!">This is a link</a>
