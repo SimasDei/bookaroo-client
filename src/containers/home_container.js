@@ -25,7 +25,7 @@ class HomeContainer extends Component {
         <div className="row">{this.renderItems(this.props.books)}</div>
         <div
           onClick={this.loadMore}
-          className="loadMore btn-floating btn-large purple  pulse"
+          className="loadMore btn-floating btn-large orange  pulse"
           style={{ display: 'flex', margin: '0 auto' }}
         >
           <i className="material-icons">menu</i>
