@@ -4,7 +4,7 @@ export default () => {
   return (
     <div>
       <div
-        className="showcase z-depth-4"
+        className="showcase z-depth-5"
         style={{
           marginTop: '-64px',
           marginBottom: '100px',

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { auth } from '../actions';
 import { connect } from 'react-redux';
 
 export default function(ComposedClass) {
@@ -6,6 +7,18 @@ export default function(ComposedClass) {
     state = {
       loading: true
     };
+
+    componentWillMount() {
+      this.props.dispatch(auth());
+    }
+
+    componentWillReceiveProps(nextProps) {
+      this.setState({ loading: false });
+
+      if (!nextProps.users.login.isAuth) {
+      } else {
+      }
+    }
 
     render() {
       if (this.state.loading) {
@@ -15,7 +28,7 @@ export default function(ComposedClass) {
           </div>
         );
       }
-      return <ComposedClass {...this.props} />;
+      return <ComposedClass {...this.props} users={this.props.users} />;
     }
   }
 
