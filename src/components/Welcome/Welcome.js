@@ -33,16 +33,26 @@ const Welcome = () => {
           zIndex: '5'
         }}
       />
+
       <div
-        className="white-text col s12"
+        className=" col s12"
         style={{
           position: 'fixed',
+          display: 'block',
+          margin: '0 40%',
           zIndex: 6,
-          padding: '0 43%',
           paddingTop: '19%'
         }}
       >
-        <h1>Welcome</h1>
+        <h1
+          className="transparent-text"
+          id="welcome"
+          style={{
+            fontFamily: 'Lobster'
+          }}
+        >
+          Welcome
+        </h1>
         <Link
           to="/"
           style={{ display: 'block', margin: '0 auto' }}
