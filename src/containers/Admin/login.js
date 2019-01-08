@@ -40,7 +40,7 @@ class Login extends Component {
             </span>
           ) : null}
           <div className="row">
-            <div className="input-field col s6 orange-text">
+            <div className="input-field col s12 m6 orange-text">
               <i className="material-icons prefix">account_circle</i>
               <input
                 id="icon_prefix"
@@ -52,7 +52,7 @@ class Login extends Component {
               />
               <label htmlFor="icon_prefix">Email</label>
             </div>
-            <div className="input-field col s6 orange-text">
+            <div className="input-field col s12 m6 orange-text">
               <i className="material-icons prefix">lock</i>
               <input
                 id="icon_telephone"

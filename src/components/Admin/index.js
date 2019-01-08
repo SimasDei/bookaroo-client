@@ -2,7 +2,6 @@ import React from 'react';
 
 const User = props => {
   let user = props.users.login;
-  console.log(props);
   return (
     <div className="container">
       <div className="row">
@@ -12,7 +11,7 @@ const User = props => {
             <div className="card-image">
               <img
                 className="responsive-img"
-                src="https://lorempixel.com/100/190/nature/6"
+                src="https://rlv.zcache.com/tom_and_jerry_reading_book_autographed_classic_round_sticker-ref440d1872684804868ef6b205e75895_v9waf_8byvr_400.jpg"
                 alt="user"
               />
             </div>
@@ -32,7 +31,7 @@ const User = props => {
                 </div>
               </div>
               <div className="card-action">
-                <a href="#!">This is a link</a>
+                <a href="#!">My Reviews</a>
               </div>
             </div>
           </div>

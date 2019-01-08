@@ -11,11 +11,11 @@ import Welcome from './components/Welcome/Welcome';
 const Routes = () => {
   return (
     <Layout>
-      <Route path="/" exact component={Welcome} />
+      <Route path="/" exact component={Auth(Welcome)} />
       <Switch>
         <Route path="/bookaroo" exact component={Auth(Home)} />
-        <Route path="/bookaroo/login" exact component={Login} />
-        <Route path="/bookaroo/books/:id" exact component={BookView} />
+        <Route path="/bookaroo/login" exact component={Auth(Login)} />
+        <Route path="/bookaroo/books/:id" exact component={Auth(BookView)} />
         <Route path="/bookaroo/user" exact component={Auth(User)} />
       </Switch>
     </Layout>

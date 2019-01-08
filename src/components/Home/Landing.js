@@ -51,13 +51,13 @@ export default () => {
         style={{ zIndex: '1', marginTop: '-500px', marginBottom: '500px' }}
       >
         <Link
-          className="waves-effect waves-light btn-large orange col s3 offset-s3"
+          className="hoverable waves-effect waves-light btn-large orange col s3 offset-s3"
           to="/bookaroo/login"
         >
           Log In
         </Link>
         <Link
-          className="waves-effect waves-light btn-large orange col s3"
+          className="hoverable waves-effect waves-light btn-large orange col s3"
           to="/bookaroo/"
         >
           Sign Up
