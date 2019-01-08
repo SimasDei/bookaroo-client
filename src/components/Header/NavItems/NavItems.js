@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const NavItems = () => {
   return (
@@ -22,12 +23,7 @@ const NavItems = () => {
           Add Admins
         </Link>
       </li>
-      <li className="navItem">
-        <Link to="/bookaroo/login" className="orange-text">
-          <i className="material-icons left">power_settings_new</i>
-          Login
-        </Link>
-      </li>
+
       <li className="navItem">
         <Link to="/bookaroo/user/user-reviews" className="orange-text">
           <i className="material-icons left">rate_review</i>
@@ -41,7 +37,17 @@ const NavItems = () => {
         </Link>
       </li>
       <li className="navItem">
-        <Link to="/bookaroo/user/logout" className="orange-text">
+        <Link to="/bookaroo/login" className="orange-text">
+          <i className="material-icons left">power_settings_new</i>
+          Login
+        </Link>
+      </li>
+      <li className="navItem">
+        <Link
+          to="/bookaroo"
+          className="orange-text"
+          onClick={() => axios.get('/logout')}
+        >
           <i className="material-icons left">exit_to_app</i>
           Logout
         </Link>
