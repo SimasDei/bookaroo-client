@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="transparent">
         <div className="nav-wrapper">
           <Link
-            to="/"
+            to="/bookaroo"
             className="brand-logo orange-text"
             style={{ marginLeft: '16px' }}
           >

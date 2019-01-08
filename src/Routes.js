@@ -11,12 +11,12 @@ import Welcome from './components/Welcome/Welcome';
 const Routes = () => {
   return (
     <Layout>
+      <Route path="/" exact component={Welcome} />
       <Switch>
-        <Route path="/simas" component={Welcome} />
-        <Route path="/" exact component={Auth(Home)} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/books/:id" exact component={BookView} />
-        <Route path="/user" exact component={Auth(User)} />
+        <Route path="/bookaroo" exact component={Auth(Home)} />
+        <Route path="/bookaroo/login" exact component={Login} />
+        <Route path="/bookaroo/books/:id" exact component={BookView} />
+        <Route path="/bookaroo/user" exact component={Auth(User)} />
       </Switch>
     </Layout>
   );

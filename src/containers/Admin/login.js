@@ -12,7 +12,7 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.users.login.isAuth) {
-      this.props.history.push('/user');
+      this.props.history.push('/bookaroo/user');
     }
   }
 

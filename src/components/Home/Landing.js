@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -14,6 +15,7 @@ export default () => {
             'url(https://images.hellogiggles.com/uploads/2018/08/09140304/picture-of-books-about-books-photo.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
           position: 'relative'
         }}
       >
@@ -30,11 +32,36 @@ export default () => {
             zIndex: '-1'
           }}
         />
-        <div className="row" style={{ paddingTop: '200px', zIndex: '10' }}>
-          <div className="col s12">
-            <h2 className="orange-text center-align">BOOKAROO</h2>
+        <div
+          className="row container"
+          style={{ paddingTop: '200px', zIndex: '2' }}
+        >
+          <div className="col s8 offset-s2">
+            <h1
+              className="orange-text center-align"
+              style={{ fontFamily: 'Lobster' }}
+            >
+              Bookaroo
+            </h1>
           </div>
         </div>
+      </div>
+      <div
+        className="row"
+        style={{ zIndex: '1', marginTop: '-500px', marginBottom: '500px' }}
+      >
+        <Link
+          className="waves-effect waves-light btn-large orange col s3 offset-s3"
+          to="/bookaroo/login"
+        >
+          Log In
+        </Link>
+        <Link
+          className="waves-effect waves-light btn-large orange col s3"
+          to="/bookaroo/"
+        >
+          Sign Up
+        </Link>
       </div>
     </div>
   );

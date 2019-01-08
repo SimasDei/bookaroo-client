@@ -24,7 +24,7 @@ const BookItem = item => {
 
         <div className="card-action">
           <Link
-            to={`/books/${item._id}`}
+            to={`/bookaroo/books/${item._id}`}
             className="book_item truncate"
             title={item.name}
           >

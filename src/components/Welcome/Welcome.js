@@ -35,31 +35,36 @@ const Welcome = () => {
       />
 
       <div
-        className=" col s12"
         style={{
-          position: 'fixed',
-          display: 'block',
-          margin: '0 40%',
-          zIndex: 6,
-          paddingTop: '19%'
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          textAlign: 'center',
+          zIndex: 6
         }}
+        className="container flex"
       >
-        <h1
-          className="transparent-text"
-          id="welcome"
-          style={{
-            fontFamily: 'Lobster'
-          }}
-        >
-          Welcome
-        </h1>
-        <Link
-          to="/"
-          style={{ display: 'block', margin: '0 auto' }}
-          className="waves-effect waves-light btn-large transparent"
-        >
-          Enter
-        </Link>
+        <div>
+          <h1
+            className="transparent-text"
+            id="welcome"
+            style={{
+              fontFamily: 'Lobster'
+            }}
+          >
+            Welcome
+          </h1>
+        </div>
+        <div>
+          <Link
+            to="/bookaroo"
+            className="waves-effect waves-light btn-large transparent"
+            style={{ width: '200px' }}
+          >
+            Enter
+          </Link>
+        </div>
       </div>
     </div>
   );
