@@ -1,6 +1,54 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { addBook } from '../../actions';
 
 class AddBook extends Component {
+  state = {
+    formData: {
+      name: '',
+      author: '',
+      pages: '',
+      price: '',
+      imageUrl: '',
+      review: ''
+    }
+  };
+
+  submitForm = e => {
+    e.preventDefault();
+    this.props.dispatch(
+      addBook({
+        ...this.state.formData,
+        ownerId: this.props.users.login.id
+      })
+    );
+  };
+
+  handleInput = (e, name) => {
+    const newFormData = {
+      ...this.state.formData
+    };
+    newFormData[name] = e.target.value;
+
+    this.setState({
+      formData: newFormData
+    });
+  };
+
+  showNewBook = book =>
+    book.post ? (
+      <div>
+        <Link
+          style={{ display: 'flex', margin: '0 auto' }}
+          className="waves-effect btn btn-large orange lighten-2"
+          to={`/bookaroo/books/${book.bookId}`}
+        >
+          Go to Review
+        </Link>
+      </div>
+    ) : null;
+
   render() {
     return (
       <div>
@@ -25,35 +73,80 @@ class AddBook extends Component {
           <div className="card" style={{ marginTop: '200px' }}>
             <div className="card-content">
               <div className="row">
-                <form className="col s12">
+                <form className="col s12" onSubmit={this.submitForm}>
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="title" type="text" className="validate" />
-                      <label htmlFor="title">Book Title</label>
+                      <input
+                        id="name"
+                        type="text"
+                        className="validate"
+                        value={this.state.formData.name}
+                        onChange={e => this.handleInput(e, 'name')}
+                      />
+                      <label htmlFor="name">Book Title</label>
                     </div>
                   </div>
+
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="author" type="text" className="validate" />
+                      <input
+                        id="author"
+                        type="text"
+                        className="validate"
+                        value={this.state.formData.author}
+                        onChange={e => this.handleInput(e, 'author')}
+                      />
                       <label htmlFor="author">Book Author</label>
                     </div>
                   </div>
+
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="pages" type="text" className="validate" />
+                      <input
+                        id="pages"
+                        type="number"
+                        className="validate"
+                        value={this.state.formData.pages}
+                        onChange={e => this.handleInput(e, 'pages')}
+                      />
                       <label htmlFor="pages">Number of Pages</label>
                     </div>
                   </div>
+
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="coverUrl" type="text" className="validate" />
-                      <label htmlFor="coverUrl">Link to Cover Image</label>
+                      <input
+                        id="price"
+                        type="number"
+                        className="validate"
+                        value={this.state.formData.price}
+                        onChange={e => this.handleInput(e, 'price')}
+                      />
+                      <label htmlFor="price">Price</label>
                     </div>
                   </div>
+
+                  <div className="row">
+                    <div className="input-field col s6 offset-s3">
+                      <input
+                        id="imageUrl"
+                        type="text"
+                        className="validate"
+                        value={this.state.formData.imageUrl}
+                        onChange={e => this.handleInput(e, 'imageUrl')}
+                      />
+                      <label htmlFor="imageUrl">Link to Cover Image</label>
+                    </div>
+                  </div>
+
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
                       <p style={{ textAlign: 'center' }}>Rating</p>
-                      <select className="browser-default">
+                      <select
+                        className="browser-default"
+                        value={this.state.formData.rating}
+                        onChange={e => this.handleInput(e, 'rating')}
+                      >
                         <option value="none" disabled>
                           Rating
                         </option>
@@ -65,25 +158,32 @@ class AddBook extends Component {
                       </select>
                     </div>
                   </div>
+
                   <div className="row">
                     <div className="input-field col s12">
                       <textarea
-                        id="textarea1"
+                        value={this.state.formData.review}
+                        onChange={e => this.handleInput(e, 'review')}
+                        id="review"
                         className="materialize-textarea"
                       />
-                      <label htmlFor="textarea1">Review</label>
+                      <label htmlFor="review">Review</label>
                     </div>
+                  </div>
+                  <div className="card-action">
+                    <button
+                      type="submit"
+                      className="waves-effect btn orange btn-large"
+                      style={{ display: 'flex', margin: '0 auto' }}
+                    >
+                      Submit
+                    </button>
+                    {this.props.books.newBook
+                      ? this.showNewBook(this.props.books.newBook)
+                      : null}
                   </div>
                 </form>
               </div>
-            </div>
-            <div className="card-action">
-              <button
-                className="waves-effect btn orange btn-large"
-                style={{ display: 'flex', margin: '0 auto' }}
-              >
-                Submit
-              </button>
             </div>
           </div>
         </div>
@@ -92,4 +192,11 @@ class AddBook extends Component {
   }
 }
 
-export default AddBook;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    books: state.books
+  };
+}
+
+export default connect(mapStateToProps)(AddBook);

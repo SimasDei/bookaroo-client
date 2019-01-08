@@ -33,7 +33,7 @@ const Welcome = () => {
       <div
         className="overlay"
         style={{
-          background: 'rgba(63,57,77, 0.7)',
+          background: 'rgba(63,57,77, 0.6)',
           position: 'absolute',
           top: 0,
           left: 0,
