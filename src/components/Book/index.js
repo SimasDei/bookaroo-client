@@ -35,7 +35,7 @@ class BookView extends Component {
                   {books.reviewer.name} {books.reviewer.lastName}
                 </strong>
               </span>
-              <button className="waves-effect waves-light btn-small activator purple right">
+              <button className="waves-effect waves-light btn-small activator orange right">
                 Read the Review
               </button>
             </div>

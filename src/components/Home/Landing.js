@@ -25,7 +25,7 @@ class Landing extends Component {
           <div
             className="overlay"
             style={{
-              background: 'rgba(63,57,77, 0.7)',
+              background: 'rgba(227,197,168, 0.4)',
               position: 'absolute',
               top: 0,
               left: 0,

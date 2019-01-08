@@ -4,7 +4,9 @@ class AddBook extends Component {
   render() {
     return (
       <div>
-        <h2 style={{ textAlign: 'center' }}>Review</h2>
+        <h2 style={{ textAlign: 'center' }} className="orange-text">
+          Review
+        </h2>
 
         <div
           className="parallax"
@@ -19,21 +21,48 @@ class AddBook extends Component {
             marginTop: '200px'
           }}
         />
-        <div className="container">
+        <div className="container orange-text">
           <div className="card" style={{ marginTop: '200px' }}>
             <div className="card-content">
               <div className="row">
                 <form className="col s12">
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="first_name" type="text" className="validate" />
-                      <label htmlFor="first_name">Title</label>
+                      <input id="title" type="text" className="validate" />
+                      <label htmlFor="title">Book Title</label>
                     </div>
                   </div>
                   <div className="row">
                     <div className="input-field col s6 offset-s3">
-                      <input id="last_name" type="text" className="validate" />
-                      <label htmlFor="last_name">Rating</label>
+                      <input id="author" type="text" className="validate" />
+                      <label htmlFor="author">Book Author</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s6 offset-s3">
+                      <input id="pages" type="text" className="validate" />
+                      <label htmlFor="pages">Number of Pages</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s6 offset-s3">
+                      <input id="coverUrl" type="text" className="validate" />
+                      <label htmlFor="coverUrl">Link to Cover Image</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s6 offset-s3">
+                      <p style={{ textAlign: 'center' }}>Rating</p>
+                      <select className="browser-default">
+                        <option value="none" disabled>
+                          Rating
+                        </option>
+                        <option value="1">1 star </option>
+                        <option value="2">2 stars </option>
+                        <option value="3">3 stars </option>
+                        <option value="4">4 stars </option>
+                        <option value="5">5 stars </option>
+                      </select>
                     </div>
                   </div>
                   <div className="row">
@@ -49,7 +78,12 @@ class AddBook extends Component {
               </div>
             </div>
             <div className="card-action">
-              <button className="btn">Submit</button>
+              <button
+                className="waves-effect btn orange btn-large"
+                style={{ display: 'flex', margin: '0 auto' }}
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
