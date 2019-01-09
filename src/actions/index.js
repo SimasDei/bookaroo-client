@@ -60,6 +60,23 @@ export function addBook(book) {
   };
 }
 
+export function clearNewBook() {
+  return {
+    type: 'CLEAR_BOOK',
+    payload: {}
+  };
+}
+
+export function getUserPosts(userId) {
+  const request = axios
+    .get(`/user_posts?user=${userId}`)
+    .then(response => response.data);
+  return {
+    type: 'GET_USER_POSTS',
+    payload: request
+  };
+}
+
 // << User Requests >>
 
 export function loginUser({ email, password }) {

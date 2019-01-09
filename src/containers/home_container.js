@@ -19,7 +19,6 @@ class HomeContainer extends Component {
       : null;
 
   render() {
-    console.log(this.props);
     return (
       <div className="container">
         <div className="row">{this.renderItems(this.props.books)}</div>

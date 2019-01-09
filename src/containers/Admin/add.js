@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addBook } from '../../actions';
+import { addBook, clearNewBook } from '../../actions';
 
 class AddBook extends Component {
   state = {
@@ -48,6 +48,10 @@ class AddBook extends Component {
         </Link>
       </div>
     ) : null;
+
+  componentWillUnmount() {
+    this.props.dispatch(clearNewBook());
+  }
 
   render() {
     return (
@@ -171,16 +175,17 @@ class AddBook extends Component {
                     </div>
                   </div>
                   <div className="card-action">
-                    <button
-                      type="submit"
-                      className="waves-effect btn orange btn-large"
-                      style={{ display: 'flex', margin: '0 auto' }}
-                    >
-                      Submit
-                    </button>
-                    {this.props.books.newBook
-                      ? this.showNewBook(this.props.books.newBook)
-                      : null}
+                    {this.props.books.newBook ? (
+                      this.showNewBook(this.props.books.newBook)
+                    ) : (
+                      <button
+                        type="submit"
+                        className="waves-effect btn orange btn-large"
+                        style={{ display: 'flex', margin: '0 auto' }}
+                      >
+                        Submit
+                      </button>
+                    )}
                   </div>
                 </form>
               </div>
@@ -193,7 +198,6 @@ class AddBook extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     books: state.books
   };
