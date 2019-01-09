@@ -77,6 +77,17 @@ export function getUserPosts(userId) {
   };
 }
 
+export function getBook(bookId) {
+  const request = axios
+    .get(`/getBook?id=${bookId}`)
+    .then(response => response.data);
+
+  return {
+    type: 'GET_BOOK',
+    payload: request
+  };
+}
+
 // << User Requests >>
 
 export function loginUser({ email, password }) {

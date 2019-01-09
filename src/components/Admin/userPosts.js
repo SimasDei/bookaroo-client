@@ -30,11 +30,10 @@ class UserPosts extends Component {
       : null;
 
   render() {
-    console.log(this.props);
     let user = this.props.users;
     return (
       <div className="container">
-        <h2>Written Reviews</h2>
+        <h2 className="orange-text center-align">Written Reviews</h2>
         <ul className="collection">{this.showUserPosts(user)}</ul>
       </div>
     );

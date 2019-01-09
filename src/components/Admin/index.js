@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const User = props => {
   let user = props.users.login;
@@ -31,7 +32,7 @@ const User = props => {
                 </div>
               </div>
               <div className="card-action">
-                <a href="#!">My Reviews</a>
+                <Link to="/bookaroo/user/user-reviews">My Reviews</Link>
               </div>
             </div>
           </div>

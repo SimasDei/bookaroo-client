@@ -5,7 +5,11 @@ export default (state = {}, action) => {
         ...state,
         list: action.payload
       };
-
+    case 'GET_BOOK':
+      return {
+        ...state,
+        book: action.payload
+      };
     case 'GET_BOOK_REVIEWER':
       return {
         ...state,

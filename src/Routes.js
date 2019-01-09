@@ -8,6 +8,7 @@ import Auth from './hoc/Auth';
 import User from './components/Admin/index';
 import Welcome from './components/Welcome/Welcome';
 import AddBook from './containers/Admin/add';
+import EditBook from './containers/Admin/edit';
 import UserPosts from './components/Admin/userPosts';
 
 const Routes = () => {
@@ -27,6 +28,11 @@ const Routes = () => {
           path="/bookaroo/user/add"
           exact
           component={Auth(AddBook, true)}
+        />
+        <Route
+          path="/bookaroo/user/edit-post/:id"
+          exact
+          component={Auth(EditBook, true)}
         />
         <Route
           path="/bookaroo/user/user-reviews"
