@@ -60,6 +60,17 @@ export function addBook(book) {
   };
 }
 
+export function updateBook(book) {
+  const request = axios
+    .post('/book_update', book)
+    .then(response => response.data);
+
+  return {
+    type: 'EDIT_BOOK',
+    payload: request
+  };
+}
+
 export function clearNewBook() {
   return {
     type: 'CLEAR_BOOK',

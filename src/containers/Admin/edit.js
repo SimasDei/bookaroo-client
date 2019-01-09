@@ -18,6 +18,7 @@ class EditBook extends PureComponent {
 
   submitForm = e => {
     e.preventDefault();
+    this.props.dispatch(updateBook(this.state.formData));
   };
 
   handleInput = (e, name) => {
@@ -39,6 +40,7 @@ class EditBook extends PureComponent {
     let book = nextProps.books.book;
     this.setState({
       formData: {
+        _id: book._id,
         name: book.name,
         author: book.author,
         pages: book.pages,

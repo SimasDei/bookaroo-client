@@ -27,6 +27,11 @@ export default (state = {}, action) => {
         ...state,
         newBook: action.payload
       };
+    case 'EDIT_BOOK':
+      return {
+        ...state,
+        newBook: action.payload
+      };
     case 'CLEAR_BOOK':
       return {
         ...state,
