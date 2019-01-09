@@ -78,6 +78,28 @@ export function clearNewBook() {
   };
 }
 
+export function clearBook() {
+  return {
+    type: 'CLEAR_EDIT_BOOK',
+    payload: {
+      book: null,
+      updateBook: false,
+      postDeleted: false
+    }
+  };
+}
+
+export function deleteBook(bookId) {
+  const request = axios
+    .delete(`/delete_book?id=${bookId}`)
+    .then(response => response.data);
+
+  return {
+    type: 'DELETE_BOOK',
+    payload: request
+  };
+}
+
 export function getUserPosts(userId) {
   const request = axios
     .get(`/user_posts?user=${userId}`)

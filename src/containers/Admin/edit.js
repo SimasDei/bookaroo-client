@@ -21,6 +21,16 @@ class EditBook extends PureComponent {
     this.props.dispatch(updateBook(this.state.formData));
   };
 
+  deletePost = e => {
+    this.props.dispatch(deleteBook(this.props.match.params.id));
+  };
+
+  redirectUser = () => {
+    setTimeout(() => {
+      this.props.history.push('/bookaroo/user/user-reviews');
+    }, 2000);
+  };
+
   handleInput = (e, name) => {
     const newFormData = {
       ...this.state.formData
@@ -52,7 +62,12 @@ class EditBook extends PureComponent {
     });
   }
 
+  componentWillUnmount() {
+    this.props.dispatch(clearBook());
+  }
+
   render() {
+    let books = this.props.books;
     return (
       <div>
         <h2 style={{ textAlign: 'center' }} className="orange-text">
@@ -174,29 +189,64 @@ class EditBook extends PureComponent {
                     </div>
                   </div>
                   <div className="card-action">
-                    <button
-                      type="submit"
-                      className="waves-effect btn orange btn-large"
-                      style={{ display: 'flex', margin: '0 auto' }}
-                    >
-                      Submit
-                    </button>
-                    <div
-                      style={{
-                        paddingTop: '16px',
-                        display: 'flex'
-                      }}
-                    >
+                    {books.updateBook ? (
                       <div
                         style={{
-                          margin: '0 auto',
-                          width: '111px'
+                          justifyContent: 'center',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center'
                         }}
-                        className="btn btn-large red col s4 "
                       >
-                        Delete Review
+                        <h5 className="green-text">Success!</h5>
+                        <Link
+                          className="btn btn-large green"
+                          to={`/bookaroo/books/${books.book._id}`}
+                        >
+                          Go To Review
+                        </Link>
                       </div>
-                    </div>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="waves-effect btn orange btn-large"
+                        style={{ display: 'flex', margin: '0 auto' }}
+                      >
+                        Submit
+                      </button>
+                    )}
+
+                    {books.bookDeleted ? (
+                      <div
+                        style={{
+                          justifyContent: 'center',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <h5 className="red-text">Review Deleted</h5>
+                        {this.redirectUser()}
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          paddingTop: '16px',
+                          display: 'flex'
+                        }}
+                      >
+                        <div
+                          style={{
+                            margin: '0 auto',
+                            width: '111px'
+                          }}
+                          className="btn btn-large red col s4 "
+                          onClick={this.deletePost}
+                        >
+                          Delete Review
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </form>
               </div>
