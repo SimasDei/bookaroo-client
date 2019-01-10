@@ -4,6 +4,7 @@ import Layout from './hoc/Layout';
 import Home from './components/Home/Home';
 import BookView from './components/Book';
 import Login from './containers/Admin/login';
+import Logout from './containers/Admin/logout';
 import Auth from './hoc/Auth';
 import User from './components/Admin/index';
 import Welcome from './components/Welcome/Welcome';
@@ -20,6 +21,12 @@ const Routes = () => {
         <Route path="/bookaroo" exact component={Auth(Home, null)} />
         <Route path="/bookaroo/login" exact component={Auth(Login, false)} />
         <Route
+          path="/bookaroo/user/logout"
+          exact
+          component={Auth(Logout, true)}
+        />
+
+        <Route
           path="/bookaroo/books/:id"
           exact
           component={Auth(BookView, null)}
@@ -27,7 +34,7 @@ const Routes = () => {
         <Route
           path="/bookaroo/user/register"
           exact
-          component={Auth(Register, null)}
+          component={Auth(Register, true)}
         />
         <Route path="/bookaroo/user" exact component={Auth(User, true)} />
         <Route
