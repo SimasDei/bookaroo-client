@@ -16,6 +16,11 @@ export default (state = {}, action) => {
         ...state,
         userPosts: action.payload
       };
+    case 'GET_USERS':
+      return {
+        ...state,
+        users: action.payload
+      };
     default:
       return state;
   }

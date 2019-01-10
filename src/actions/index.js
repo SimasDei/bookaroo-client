@@ -142,3 +142,12 @@ export function auth() {
     payload: request
   };
 }
+
+export function getUsers() {
+  const request = axios.get('/users').then(response => response.data);
+
+  return {
+    type: 'GET_USERS',
+    payload: request
+  };
+}
