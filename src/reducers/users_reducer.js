@@ -21,6 +21,12 @@ export default (state = {}, action) => {
         ...state,
         users: action.payload
       };
+    case 'USER_REGISTER':
+      return {
+        ...state,
+        register: action.payload.success,
+        users: action.payload.users
+      };
     default:
       return state;
   }

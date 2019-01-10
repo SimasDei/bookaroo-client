@@ -1,28 +1,58 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getUsers, registerUsers } from '../../actions';
+import { getUsers, registerUser } from '../../actions';
 import moment from 'moment';
 
-class Register extends Component {
+class Register extends PureComponent {
   state = {
     name: '',
     lastName: '',
+    avatarImg: '',
     email: '',
     password: '',
     error: ''
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    this.setState({ error: '' });
+
+    this.props.dispatch(
+      registerUser(
+        {
+          name: this.state.name,
+          lastName: this.state.lastName,
+          avatarImg: this.state.avatarImg,
+          email: this.state.email,
+          password: this.state.password
+        },
+        this.props.users.users
+      )
+    );
   };
 
   componentWillMount() {
     this.props.dispatch(getUsers());
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.users.register === false) {
+      this.setState({ error: 'Registration Unsuccessful' });
+    } else {
+      this.setState({
+        name: '',
+        lastName: '',
+        avatarImg: '',
+        email: '',
+        password: '',
+        error: ''
+      });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
   };
 
   showUsers = user => {
@@ -81,6 +111,8 @@ class Register extends Component {
                         id="name"
                         type="text"
                         className="validate"
+                        onChange={this.onChange}
+                        value={this.state.name}
                       />
                       <span htmlFor="name">First Name</span>
                     </div>
@@ -93,6 +125,8 @@ class Register extends Component {
                         id="lastName"
                         type="text"
                         className="validate"
+                        onChange={this.onChange}
+                        value={this.state.lastName}
                       />
                       <span htmlFor="lastName">Last Name</span>
                     </div>
@@ -105,6 +139,8 @@ class Register extends Component {
                         id="avatarImg"
                         type="text"
                         className="validate"
+                        onChange={this.onChange}
+                        value={this.state.avatarImg}
                       />
                       <span htmlFor="avatarImg">Link to Avatar</span>
                     </div>
@@ -117,6 +153,8 @@ class Register extends Component {
                         id="email"
                         type="email"
                         className="validate"
+                        onChange={this.onChange}
+                        value={this.state.email}
                       />
                       <span htmlFor="email">Email</span>
                     </div>
@@ -129,9 +167,14 @@ class Register extends Component {
                         id="password"
                         type="password"
                         className="validate"
+                        onChange={this.onChange}
+                        value={this.state.password}
                       />
                       <span htmlFor="password">Password</span>
                     </div>
+                  </div>
+                  <div className="error red-text center-align">
+                    <h5>{this.state.error}</h5>
                   </div>
 
                   <button
