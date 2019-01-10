@@ -10,6 +10,7 @@ import Welcome from './components/Welcome/Welcome';
 import AddBook from './containers/Admin/add';
 import EditBook from './containers/Admin/edit';
 import UserPosts from './components/Admin/userPosts';
+import Register from './containers/Admin/register';
 
 const Routes = () => {
   return (
@@ -22,6 +23,11 @@ const Routes = () => {
           path="/bookaroo/books/:id"
           exact
           component={Auth(BookView, null)}
+        />
+        <Route
+          path="/bookaroo/user/register"
+          exact
+          component={Auth(Register, null)}
         />
         <Route path="/bookaroo/user" exact component={Auth(User, true)} />
         <Route

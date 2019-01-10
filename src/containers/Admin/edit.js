@@ -73,7 +73,6 @@ class EditBook extends PureComponent {
         <h2 style={{ textAlign: 'center' }} className="orange-text">
           Edit Review
         </h2>
-
         <div
           className="parallax"
           style={{
@@ -92,7 +91,7 @@ class EditBook extends PureComponent {
             <div className="card-content">
               <div className="row">
                 <form className="col s12" onSubmit={this.submitForm}>
-                  <div className="row">
+                  <div className="row section scrollspy" id="editForm">
                     <div className="input-field col s6 offset-s3">
                       <input
                         id="name"
